@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend for Bannerman Wealth Survey",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest -i --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bannerman-survey/survey.git"
+  },
+  "author": "Jeff Kusowski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bannerman-survey/survey/issues"
+  },
+  "homepage": "https://github.com/bannerman-survey/survey#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3"
+  }
+}
