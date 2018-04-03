@@ -15,6 +15,9 @@ userRouter.post('/signup', jsonParser, (request, response) => {
   return superagent.post('convertkit.com/blah')
     .attach(request.body)
     .then( () => {
-      response.sendStatus(200);
+      return response.sendStatus(200);
+    })
+    .catch( () => {
+      return response.sendStatus(500);
     });
 });
