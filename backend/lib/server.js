@@ -9,6 +9,8 @@ const app = express();
 let isServerOn = false;
 let httpServer = null;
 
+app.use(require('../route/user-router'));
+
 app.all('*', (request, response) => {
   console.log('hello world');
   return response.sendStatus(404);
