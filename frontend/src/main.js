@@ -7,7 +7,7 @@ import reducer from './reducer';
 import App from './component/app';
 import reporter from './lib/redux-reporter.js';
 import { composeWithDevTools } from 'redux-devtools-extension';
-require('./style/style.scss');
+import './style/style.scss';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(reporter)));
 
