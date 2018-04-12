@@ -1,7 +1,6 @@
 'use strict';
 
-require('dotenv').config();
-
+import 'dotenv/config';
 const { DefinePlugin, EnvironmentPlugin } = require('webpack');
 const CleanPlugin = require('clean-webpack-plugin');
 const UglifyPlugin = require('uglifyjs-webpack-plugin');
@@ -21,7 +20,7 @@ WebPackConfig.output = {
 };
 
 WebPackConfig.plugins = [
-  new HTMLPlugin({ title: 'ScrambleVox' }),
+  new HTMLPlugin({ title: 'Survey' }),
   new EnvironmentPlugin(['NODE_ENV']),
   new DefinePlugin({
     __API_URL__: JSON.stringify(process.env.API_URL),
