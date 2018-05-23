@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Header from '../header';
-// import Landing from '../landing';
+import About from '../about';
+import Landing from '../landing';
+import Question from '../question';
 // import Favorite from '../favorite';
 // import WaveForm from '../wave-form';
 // import Dashboard from '../dashboard';
@@ -14,25 +16,29 @@ import Header from '../header';
 // import { FAVORITE_ROUTE, WAVE_ROUTE } from '../../routes';
 
 class App extends React.Component {
-  componentDidMount() {
-    if (this.props.loggedIn) {
-      this.props.fetchFavorite().catch(console.error);
-      this.props.fetchWave().catch(console.error);
-    }
-  }
+  // componentDidMount() {
+  //   if (this.props.loggedIn) {
+  //     this.props.fetchFavorite().catch(console.error);
+  //     this.props.fetchWave().catch(console.error);
+  //   }
+  // }
   render() {
     return (
       <div className="app">
         <BrowserRouter>
           <div>
             <Header />
+            <Landing />
+            
+            <Route exact path="/about" component={About} />
+            <Route exact path="/quiz" component={Question} />
             {/* <Route path="*" component={AuthRedirect} />
             <Route exact path="/" component={Landing} />
             <Route exact path="/signup" component={Landing} />
             <Route exact path="/login" component={Landing} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/favorite" component={Favorite} />
-            <Route exact path="/transform" component={WaveForm} /> */}
+            <Route exact path="/transform" component={WaveForm} />  */}
           </div>
         </BrowserRouter>
       </div>

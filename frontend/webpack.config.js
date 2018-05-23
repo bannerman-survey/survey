@@ -1,6 +1,7 @@
 'use strict';
 
-import 'dotenv/config';
+// import 'dotenv/config';
+const dotenv = require('dotenv').config();
 const { DefinePlugin, EnvironmentPlugin } = require('webpack');
 const CleanPlugin = require('clean-webpack-plugin');
 const UglifyPlugin = require('uglifyjs-webpack-plugin');
