@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import questions from '../../data/questions';
 
 
-class Question extends React.Component {
+class EmailForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +13,7 @@ class Question extends React.Component {
       firstClicked: false,
       answerArray: [],
     };
-    let memberFunctions = Object.getOwnPropertyNames(Question.prototype);
+    let memberFunctions = Object.getOwnPropertyNames(EmailForm.prototype);
     for (let functionName of memberFunctions) {
       if (functionName.startsWith('handle')) {
         this[functionName] = this[functionName].bind(this);
@@ -27,14 +27,14 @@ class Question extends React.Component {
     let updatedAnswerArray = this.state.answerArray;
     updatedAnswerArray[this.state.questionIndex] = parseInt(event.target.id);
 
-    this.setState({firstClicked: true, answerArray: updatedAnswerArray});
+    this.setState({ firstClicked: true, answerArray: updatedAnswerArray });
     console.log(this.state);
-  
+
   }
   handleSecondClick(event) {
     event.preventDefault();
     console.log('before', this.state.questionIndex);
-    this.setState({ questionIndex: this.state.questionIndex + 1 , firstClicked: false});
+    this.setState({ questionIndex: this.state.questionIndex + 1, firstClicked: false });
     console.log('after', this.state.questionIndex);
   }
   render() {
@@ -73,4 +73,4 @@ class Question extends React.Component {
 //   doLogout: () => dispatch(authActions.logoutAction()),
 // });
 
-export default Question;
+export default EmailForm;
