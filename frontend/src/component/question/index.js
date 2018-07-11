@@ -2,6 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import EmailForm from '../email-form';
 import questions from '../../data/questions';
 
 
@@ -46,7 +47,11 @@ class Question extends React.Component {
       </div>
     );
     let renderedModifiers = this.state.firstClicked === true ? modifiers : undefined;
-    return <div className="question">
+    console.log('questionIndex', this.state.questionIndex);
+    console.log('questions.length', questions.length);
+    
+    let emailJSX = <EmailForm answers={this.state.answerArray}/>;
+    let questionJSX = <div className="question">
       <h1> {questions[this.state.questionIndex].question} </h1>
       <button onClick={this.handleFirstClick} id={questions[this.state.questionIndex].data[0].value}>
         {questions[this.state.questionIndex].data[0].description}
@@ -62,9 +67,11 @@ class Question extends React.Component {
       </button>
       <div> {renderedModifiers}</div>
     </div>;
-  }
-}
 
+    let JSX = this.state.questionIndex >= questions.length - 1 ? emailJSX : questionJSX;
+    return JSX;
+  }  
+}
 // const mapStateToProps = state => ({
 //   loggedIn: !!state.token,
 // });

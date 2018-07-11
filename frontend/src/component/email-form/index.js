@@ -9,9 +9,7 @@ class EmailForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      questionIndex: 0,
-      firstClicked: false,
-      answerArray: [],
+      email: '',
     };
     let memberFunctions = Object.getOwnPropertyNames(EmailForm.prototype);
     for (let functionName of memberFunctions) {
@@ -20,51 +18,26 @@ class EmailForm extends React.Component {
       }
     }
   }
-  handleFirstClick(event) {
+  handleSubmit(event) {
     event.preventDefault();
-    console.log(event.target.id);
-    console.log(typeof event.target.id);
-    let updatedAnswerArray = this.state.answerArray;
-    updatedAnswerArray[this.state.questionIndex] = parseInt(event.target.id);
-
-    this.setState({ firstClicked: true, answerArray: updatedAnswerArray });
-    console.log(this.state);
+    console.log('email', this.state.email);
+    console.log('answers', this.props.answers);
+    let score = this.props.answers.reduce( (a, b) => a + b );
+    console.log('score', score);
 
   }
-  handleSecondClick(event) {
-    event.preventDefault();
-    console.log('before', this.state.questionIndex);
-    this.setState({ questionIndex: this.state.questionIndex + 1, firstClicked: false });
-    console.log('after', this.state.questionIndex);
+
+  handleChange(event) {
+    let { name, value } = event.target;
+    this.setState({ [name]: value });
   }
   render() {
-    let modifiers = (
-      <div>
-        <button onClick={this.handleSecondClick}> Less than</button>
-        <button onClick={this.handleSecondClick}> Same</button>
-        <button onClick={this.handleSecondClick}> Greater than</button>
-      </div>
-    );
-    let renderedModifiers = this.state.firstClicked === true ? modifiers : undefined;
-    return <div className="question">
-      <h1> {questions[this.state.questionIndex].question} </h1>
-      <button onClick={this.handleFirstClick} id={questions[this.state.questionIndex].data[0].value}>
-        {questions[this.state.questionIndex].data[0].description}
-      </button>
-      <button onClick={this.handleFirstClick} id={questions[this.state.questionIndex].data[1].value}>
-        {questions[this.state.questionIndex].data[1].description}
-      </button>
-      <button onClick={this.handleFirstClick} id={questions[this.state.questionIndex].data[2].value}>
-        {questions[this.state.questionIndex].data[2].description}
-      </button>
-      <button onClick={this.handleFirstClick} id={questions[this.state.questionIndex].data[3].value}>
-        {questions[this.state.questionIndex].data[3].description}
-      </button>
-      <div> {renderedModifiers}</div>
-    </div>;
+    return <form id="email-form" onSubmit={this.handleSubmit}>
+      <input name="email" placeholder="email" type="text" value={this.state.email} onChange={this.handleChange}/>
+      <button> Submit </button>
+    </form>;
   }
 }
-
 // const mapStateToProps = state => ({
 //   loggedIn: !!state.token,
 // });
