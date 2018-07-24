@@ -1,4 +1,5 @@
 import React from 'react';
+import superagent from 'superagent';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -20,9 +21,17 @@ class EmailForm extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
+    let score = this.props.answers.reduce( (a, b) => a + b );
+    const body = {
+      'score': score,
+      'email': this.state.email,
+    };
+    superagent.post('https://pj0gfbtyke.execute-api.us-east-1.amazonaws.com/dev/hello')
+      .send(body)
+      .then(response => console.log('response:', response));
+
     console.log('email', this.state.email);
     console.log('answers', this.props.answers);
-    let score = this.props.answers.reduce( (a, b) => a + b );
     console.log('score', score);
 
   }
