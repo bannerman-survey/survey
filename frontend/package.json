@@ -6,7 +6,8 @@
 	"scripts": {
 		"test": "jest",
 		"watch": "webpack-dev-server --inline --hot",
-		"start": "webpack && node index.js"
+		"start": "webpack && node index.js",
+		"build": "webpack"
 	},
 	"keywords": [],
 	"author": "",
