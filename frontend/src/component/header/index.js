@@ -3,10 +3,12 @@ import React from 'react';
 // import * as util from '../../lib/util';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import bannermanHorizonal from '../../assets/bannerman-wealth-horizontal.png';
 
 class Header extends React.Component {
   render() {
     let JSX = (
+      
       <ul>
         <li>
           <Link to="/"> Home </Link>
@@ -35,7 +37,7 @@ class Header extends React.Component {
     // );
     return (
       <header className="header">
-        <h1> Survey </h1>
+        <img src={bannermanHorizonal} />
         <nav>{JSX}</nav>
       </header>
     );

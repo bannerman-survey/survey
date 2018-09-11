@@ -1,7 +1,23 @@
+$primary-color-one: #042342;
+$primary-color-two: #0078D1;
+$primary-color-three: #FFFFFF;
+
+$font-main: Futura, sans-serif;
+html {
+  font-family: $font-main;
+  background-color: $primary-color-three;
+}
 header {
-  background-color: darkgreen;
+  background-color: $primary-color-one;
+  img {
+    width: 100%
+  };
+  li {
+    display: inline;
+    padding: 20px;
+  }
 }
 
 h1 {
-  color: green;
+  color: $primary-color-two;
 }
