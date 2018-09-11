@@ -1,0 +1,22 @@
+html {
+  font-family: Futura, sans-serif;
+  background-color: #FFFFFF;
+}
+
+header {
+  background-color: #042342;
+}
+
+header img {
+  width: 100%;
+}
+
+header li {
+  display: inline;
+  padding: 20px;
+}
+
+h1 {
+  color: #0078D1;
+}
+
